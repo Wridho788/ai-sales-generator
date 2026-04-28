@@ -10,9 +10,8 @@ export function Button({ children, className, ...props }: ButtonProps) {
   return (
     <button
       className={cn(
-        "w-full px-4 py-2 rounded-xl bg-violet-500 text-white hover:bg-violet-600 transition",
+        "px-4 py-2 rounded-xl bg-violet-500 text-white hover:bg-violet-600 dark:hover:bg-violet-700 active:scale-[0.98] transition-all duration-150 font-medium",
         "disabled:opacity-50 disabled:cursor-not-allowed",
-        "font-medium",
         className
       )}
       {...props}

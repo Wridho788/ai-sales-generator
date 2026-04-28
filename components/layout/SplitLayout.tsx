@@ -7,14 +7,11 @@ interface SplitLayoutProps {
 
 export default function SplitLayout({ left, right }: SplitLayoutProps) {
   return (
-    <div className="flex flex-col lg:flex-row h-screen">
-      {/* LEFT */}
-      <div className="lg:w-1/2 p-6 overflow-y-auto border-r bg-white">
+    <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="w-full lg:w-1/2 p-8 overflow-y-auto border-r border-gray-200 dark:border-gray-700">
         {left}
       </div>
-
-      {/* RIGHT */}
-      <div className="lg:w-1/2 p-6 overflow-y-auto bg-gray-50">
+      <div className="hidden lg:block w-1/2 p-8 overflow-y-auto bg-white dark:bg-gray-800">
         {right}
       </div>
     </div>

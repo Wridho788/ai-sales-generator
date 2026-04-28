@@ -6,8 +6,12 @@ import { GeneratorInput, SalesPage } from "./types";
 
 function safeParseJSON(text: string) {
   try {
-    return JSON.parse(text || "{}");
+    return JSON.parse(text);
   } catch {
+    // fallback: extract JSON manually
+    const match = text.match(/\{[\s\S]*\}/);
+    if (match) return JSON.parse(match[0]);
+
     throw new Error("Invalid AI response");
   }
 }

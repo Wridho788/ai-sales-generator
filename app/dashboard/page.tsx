@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
+
 import SplitLayout from "@/components/layout/SplitLayout";
 import ProductForm from "@/components/form/ProductForm";
 import Preview from "@/components/preview/Preview";
 import { GeneratorInput, SalesPage } from "@/features/generator/types";
+import { TemplateSwitcher } from "@/components/ui/TemplateSwitcher";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Dashboard() {
   const [data, setData] = useState<SalesPage | null>(null);
@@ -34,7 +37,13 @@ export default function Dashboard() {
   return (
     <SplitLayout
       left={
-        <ProductForm onGenerate={handleGenerate} loading={loading} />
+        <div className="space-y-8">
+          <div className="flex items-center justify-between">
+            <TemplateSwitcher />
+            <ThemeToggle />
+          </div>
+          <ProductForm onGenerate={handleGenerate} loading={loading} />
+        </div>
       }
       right={<Preview data={data} />}
     />
