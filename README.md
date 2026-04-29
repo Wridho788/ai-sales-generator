@@ -6,7 +6,6 @@ Generate high-converting sales/landing pages instantly using AI. This project le
 - ✨ Generate complete sales pages with AI
 - 🎯 Customizable: input product name, description, audience, and tone
 - 🔄 Regenerate specific sections (hero, benefits) on demand
-- 🌗 Light/Dark mode toggle
 - 📝 History of generated pages
 - ⚡ Modern UI with Tailwind CSS and React 19
 - 🔒 Data saved securely with Supabase
