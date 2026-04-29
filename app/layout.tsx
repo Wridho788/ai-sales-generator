@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system">
-          <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-black">
+          <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-black">
             {children}
           </div>
         </ThemeProvider>

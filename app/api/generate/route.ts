@@ -39,7 +39,8 @@ export async function POST(req: Request) {
     }
 
     // Otherwise, it's a generate request
-    const parsed = generateSchema.parse(body);
+    // Accept sessionId if provided
+    const parsed = { ...generateSchema.parse(body), sessionId: body.sessionId };
     const result = await generateSalesPage(parsed);
 
     return NextResponse.json(result);

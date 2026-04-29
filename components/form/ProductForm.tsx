@@ -26,12 +26,17 @@ export default function ProductForm({ onGenerate, loading = false }: ProductForm
     <div className="space-y-4">
       <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Generate Sales Page</h2>
 
-      <Input
-        label="Product Name"
-        type="text"
-        value={form.productName}
-        onChange={(e) => handleChange("productName", e.target.value)}
-      />
+
+      <div className="space-y-1">
+        <Input
+          label="Product Name"
+          type="text"
+          value={form.productName}
+          onChange={(e) => handleChange("productName", e.target.value)}
+        />
+        <span className="text-xs text-gray-500">Minimum 3 characters</span>
+      </div>
+
 
       <div className="space-y-1">
         <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Product Description</label>
@@ -41,14 +46,20 @@ export default function ProductForm({ onGenerate, loading = false }: ProductForm
           value={form.description}
           onChange={(e) => handleChange("description", e.target.value)}
         />
+        <span className="text-xs text-gray-500">Minimum 10 characters</span>
       </div>
 
-      <Input
-        label="Target Audience"
-        type="text"
-        value={form.audience}
-        onChange={(e) => handleChange("audience", e.target.value)}
-      />
+
+      <div className="space-y-1">
+        <Input
+          label="Target Audience"
+          type="text"
+          value={form.audience}
+          onChange={(e) => handleChange("audience", e.target.value)}
+        />
+        <span className="text-xs text-gray-500">Required</span>
+      </div>
+
 
       <div className="space-y-1">
         <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Tone</label>
@@ -61,14 +72,18 @@ export default function ProductForm({ onGenerate, loading = false }: ProductForm
           <option value="casual">Casual</option>
           <option value="persuasive">Persuasive</option>
         </select>
+        <span className="text-xs text-gray-500">Required</span>
       </div>
 
       <Button
         onClick={() => onGenerate(form)}
         disabled={loading}
       >
-        {loading ? "Generating..." : "Generate Page"}
+        {loading ? "Generating, please wait..." : "Generate Page"}
       </Button>
+      {loading && (
+        <div className="text-sm text-violet-600 mt-2">Generating your sales page, please wait...</div>
+      )}
     </div>
   );
 }
