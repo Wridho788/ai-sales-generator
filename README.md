@@ -1,9 +1,9 @@
 # AI Sales Page Generator
 
-Generate high-converting sales/landing pages instantly using AI. This project leverages OpenAI/Groq LLMs to create persuasive marketing copy and page sections based on your product, audience, and tone.
+Generate high-converting sales/landing pages instantly using Groq AI. This project leverages OpenAI/Groq LLMs to create persuasive marketing copy and page sections based on your product, audience, and tone.
 
 ## Features
-- ✨ Generate complete sales pages with AI
+- ✨ Generate complete sales pages with Groq AI
 - 🎯 Customizable: input product name, description, audience, and tone
 - 🔄 Regenerate specific sections (hero, benefits) on demand
 - 📝 History of generated pages
@@ -57,11 +57,11 @@ Generate high-converting sales/landing pages instantly using AI. This project le
 - `app/` — Next.js app directory (API routes, pages)
 - `components/` — UI and form components
 - `features/generator/` — AI logic, prompt building, types
-- `lib/` — API clients (OpenAI, Supabase, session utils)
+- `lib/` — API clients (Groq, Supabase, session utils)
 - `store/` — Zustand state management
 
 ## License
 MIT
 
 ---
-Built with ❤️ by your team.
+Built with ❤️ by Ridho.
