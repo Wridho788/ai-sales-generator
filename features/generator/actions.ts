@@ -51,8 +51,8 @@ async function callAI(prompt: string, temperature = 0.7) {
     }
 
     return text;
-  } catch (err) {
-    console.error("AI CALL ERROR:", err);
+  } catch {
+    console.error("AI CALL ERROR");
     throw new Error("AI request failed");
   }
 }
@@ -60,44 +60,15 @@ async function callAI(prompt: string, temperature = 0.7) {
 // ==============================
 // 🚀 GENERATE FULL PAGE
 // ==============================
-import { supabase } from "@/lib/supabase";
-
 export async function generateSalesPage(
-  input: GeneratorInput & { sessionId?: string }
+  input: GeneratorInput
 ): Promise<SalesPage> {
-
-  const prompt = `
-${buildPrompt(input)}
-
-IMPORTANT:
-- Return ONLY valid JSON
-- No explanation
-- No markdown
-- Follow the exact structure
-- Add a realistic, relevant, and visually appealing image URL for the hero section as 'imageUrl' (use Unsplash, Pexels, or similar free image sources, or a placeholder if needed)
-- Example hero structure:
-  {
-    "headline": "...",
-    "subheadline": "...",
-    "cta": "...",
-    "imageUrl": "https://images.unsplash.com/photo-..."
-  }
-`;
-
+  const prompt = buildPrompt(input);
   const text = await callAI(prompt, 0.7);
   const result = safeParseJSON(text);
 
-  // Save to Supabase if sessionId is provided
-  if (input.sessionId) {
-    await supabase.from("pages").insert({
-      session_id: input.sessionId,
-      title: input.productName,
-      input,
-      output: result,
-    });
-  }
-
-  return result;
+  // Return the full sales page — persistence is handled client-side via localStorage
+  return result as SalesPage;
 }
 
 // ==============================
@@ -127,10 +98,8 @@ Format:
 `;
 
   const text = await callAI(prompt, 0.8);
-
   const parsed = safeParseJSON(text);
 
-  // 🛡️ extra guard (biar tidak rusak state)
   if (!parsed[section]) {
     throw new Error(`Invalid section response: ${section}`);
   }

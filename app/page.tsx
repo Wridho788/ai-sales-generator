@@ -7,13 +7,13 @@ import {
   Download,
   Sparkles,
   Layers,
-  ArrowRight,
   Star,
   CheckCircle2,
   Code2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
+import AuthNav from "@/components/navigation/AuthNav";
 
 const features = [
   {
@@ -88,7 +88,6 @@ const testimonials = [
     content:
       "Generated my entire landing page in under 30 seconds. The copy quality is genuinely impressive — our conversion rate jumped 23%.",
     avatar: "SC",
-    rating: 5,
   },
   {
     name: "Marcus Rivera",
@@ -96,7 +95,6 @@ const testimonials = [
     content:
       "I've tried every AI page builder out there. SalesForge produces the most natural, persuasive copy by a wide margin.",
     avatar: "MR",
-    rating: 5,
   },
   {
     name: "Priya Sharma",
@@ -104,7 +102,6 @@ const testimonials = [
     content:
       "The section regeneration feature alone saves me hours. I can iterate on headlines without starting over every time.",
     avatar: "PS",
-    rating: 5,
   },
 ];
 
@@ -135,15 +132,8 @@ export default function HomePage() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button
-            size="sm"
-            onClick={() => router.push("/dashboard")}
-            icon={<ArrowRight size={15} />}
-            className="shadow-sm shadow-violet-500/20"
-          >
-            Get Started
-          </Button>
-                  </div>
+          <AuthNav />
+        </div>
       </header>
 
       {/* HERO SECTION */}
@@ -338,9 +328,11 @@ export default function HomePage() {
               >
                 {/* Stars */}
                 <div className="flex items-center gap-1">
-                  {[...Array(t.rating)].map((_, j) => (
-                    <Star key={j} size={14} className="text-amber-400 fill-amber-400" />
-                  ))}
+                  <Star size={14} className="text-amber-400 fill-amber-400" />
+                  <Star size={14} className="text-amber-400 fill-amber-400" />
+                  <Star size={14} className="text-amber-400 fill-amber-400" />
+                  <Star size={14} className="text-amber-400 fill-amber-400" />
+                  <Star size={14} className="text-amber-400 fill-amber-400" />
                 </div>
 
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -383,7 +375,7 @@ export default function HomePage() {
                 size="lg"
                 onClick={() => router.push("/dashboard")}
                 className="bg-white text-violet-600 hover:bg-violet-50 shadow-lg"
-                icon={<ArrowRight size={16} />}
+                icon={<Zap size={16} />}
               >
                 Get Started — It&apos;s Free
               </Button>

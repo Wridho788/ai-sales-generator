@@ -1,22 +1,11 @@
-import { supabase } from "@/lib/supabase";
+import {
+  savePage,
+  getPage,
+  listPages,
+  deletePage,
+  renamePage,
+  StoredPage,
+} from "@/lib/storage";
 
-export async function deletePage(id: string) {
-  const { error } = await supabase.from("pages").delete().eq("id", id);
-  if (error) throw error;
-}
-
-export async function renamePage(id: string, newTitle: string) {
-  const { error } = await supabase.from("pages").update({ title: newTitle }).eq("id", id);
-  if (error) throw error;
-}
-
-export async function getPagesBySession(sessionId: string) {
-  const { data, error } = await supabase
-    .from("pages")
-    .select("*")
-    .eq("session_id", sessionId)
-    .order("created_at", { ascending: false });
-
-  if (error) throw error;
-  return data;
-}
+export { savePage, getPage, listPages, deletePage, renamePage };
+export type { StoredPage };
