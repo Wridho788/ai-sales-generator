@@ -136,9 +136,9 @@ export default function HistoryPage() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-black">
+    <div className="flex flex-col lg:flex-row min-h-screen overflow-hidden bg-gray-50 dark:bg-black">
       {/* SIDEBAR */}
-      <aside className="w-full lg:w-96 border-r border-gray-200/60 dark:border-gray-800/60 bg-white/80 dark:bg-black/80 backdrop-blur-xl flex flex-col">
+      <aside className="w-full lg:w-96 h-auto lg:h-full border-b lg:border-b-0 lg:border-r border-gray-200/60 dark:border-gray-800/60 bg-white/80 dark:bg-black/80 backdrop-blur-xl flex flex-col flex-shrink-0">
         {/* HEADER */}
         <div className="shrink-0 p-5 border-b border-gray-200/60 dark:border-gray-800/60 space-y-4">
           <div className="flex items-center justify-between">
@@ -334,7 +334,7 @@ export default function HistoryPage() {
       </aside>
 
       {/* PREVIEW PANEL */}
-      <main className="hidden lg:flex flex-col flex-1 overflow-hidden bg-gray-50/50 dark:bg-black/50">
+      <main className="flex flex-col flex-1 min-h-[300px] overflow-hidden bg-gray-50/50 dark:bg-black/50">
         <div className="shrink-0 flex items-center justify-between px-8 py-4 border-b border-gray-200/60 dark:border-gray-800/60">
           <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
             {selected ? selected.title || "Untitled" : "Select a page"}

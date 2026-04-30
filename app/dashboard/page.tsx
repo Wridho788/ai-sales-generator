@@ -32,7 +32,6 @@ function DashboardContent() {
   const [loading, setLoading] = useState(false);
   const [generatingStep, setGeneratingStep] = useState<number>(0);
   const [regenerating, setRegenerating] = useState<SectionKey | null>(null);
-  const [showMobilePreview, setShowMobilePreview] = useState(false);
   const [isLoadedFromHistory, setIsLoadedFromHistory] = useState(false);
 
   // Load page from history if pageId param is present
@@ -154,22 +153,9 @@ function DashboardContent() {
         </div>
       </div>
 
-      {/* Mobile preview toggle */}
-      {data && (
-        <button
-          onClick={() => setShowMobilePreview(true)}
-          className="lg:hidden fixed bottom-6 right-6 z-30 w-12 h-12 rounded-full bg-violet-500 text-white shadow-lg shadow-violet-500/30 flex items-center justify-center active:scale-95 transition-all"
-          aria-label="Show preview"
-        >
-          <Zap size={20} />
-        </button>
-      )}
-
       {/* Main layout */}
       <div className="pt-14 h-screen">
         <SplitLayout
-          onCloseMobile={() => setShowMobilePreview(false)}
-          showMobileRight={showMobilePreview}
           left={
             <div className="space-y-6">
               <div className="flex items-center justify-between">

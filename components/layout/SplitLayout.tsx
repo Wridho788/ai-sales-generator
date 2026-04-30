@@ -18,9 +18,9 @@ export default function SplitLayout({
   showMobileRight = false,
 }: SplitLayoutProps) {
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-black">
+    <div className="flex flex-col lg:flex-row min-h-screen overflow-hidden bg-gray-50 dark:bg-black">
       {/* LEFT PANEL - Form */}
-      <div className="w-full lg:w-[480px] xl:w-[520px] h-full overflow-y-auto border-r border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-black/50 backdrop-blur-sm flex flex-col">
+      <div className="w-full lg:w-[480px] xl:w-[520px] h-auto lg:h-full overflow-y-auto border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-black/50 backdrop-blur-sm flex flex-col flex-shrink-0">
         {/* Mobile header */}
         {showMobileRight && onCloseMobile && (
           <div className="lg:hidden flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
@@ -42,7 +42,7 @@ export default function SplitLayout({
       {/* RIGHT PANEL - Preview */}
       <div
         className={cn(
-          "hidden lg:flex flex-col flex-1 h-full overflow-hidden",
+          "flex flex-col flex-1 min-h-[300px] overflow-hidden",
           "bg-white dark:bg-gray-950"
         )}
       >
@@ -61,7 +61,7 @@ export default function SplitLayout({
         </div>
       </div>
 
-      {/* Mobile preview overlay */}
+      {/* Mobile preview overlay (fallback - only shown when triggered) */}
       {showMobileRight && (
         <div className="lg:hidden fixed inset-0 z-50 flex flex-col bg-white dark:bg-gray-950 animate-slide-up">
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800">
