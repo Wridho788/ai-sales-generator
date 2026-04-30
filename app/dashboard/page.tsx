@@ -9,8 +9,6 @@ import Preview from "@/components/preview/Preview";
 import { getSessionId } from "@/lib/session";
 import { GeneratorInput, SalesPage } from "@/features/generator/types";
 import { TemplateSwitcher } from "@/components/ui/TemplateSwitcher";
-import ThemeToggle from "@/components/ui/ThemeToggle";
-
 
 export default function Dashboard() {
   const [data, setData] = useState<SalesPage | null>(null);
@@ -36,8 +34,7 @@ export default function Dashboard() {
 
       const json = await res.json();
       setData(json);
-      // Auto redirect to history after generate
-      router.push("/history");
+      // Tidak auto-redirect ke history
     } catch (err) {
       alert("Failed to generate page");
       console.error(err);
@@ -52,9 +49,15 @@ export default function Dashboard() {
         <div className="space-y-8">
           <div className="flex items-center justify-between">
             <TemplateSwitcher />
-            {/* <ThemeToggle /> */}
           </div>
           <ProductForm onGenerate={handleGenerate} loading={loading} />
+          <button
+            className="mt-4 px-4 py-2 rounded bg-violet-500 text-white hover:bg-violet-600 transition"
+            onClick={() => router.push("/history")}
+            type="button"
+          >
+            Lihat History
+          </button>
         </div>
       }
       right={<Preview data={data} />}

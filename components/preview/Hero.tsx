@@ -1,8 +1,8 @@
-export function Hero({ data }: { data?: { headline: string; subheadline: string; cta: string } }) {
+export function Hero({ data }: { data?: { headline: string; subheadline: string; cta: string} }) {
   if (!data) return null;
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-4 text-center">
       <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
         {data.headline}
       </h1>

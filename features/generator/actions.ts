@@ -65,6 +65,7 @@ import { supabase } from "@/lib/supabase";
 export async function generateSalesPage(
   input: GeneratorInput & { sessionId?: string }
 ): Promise<SalesPage> {
+
   const prompt = `
 ${buildPrompt(input)}
 
@@ -73,6 +74,14 @@ IMPORTANT:
 - No explanation
 - No markdown
 - Follow the exact structure
+- Add a realistic, relevant, and visually appealing image URL for the hero section as 'imageUrl' (use Unsplash, Pexels, or similar free image sources, or a placeholder if needed)
+- Example hero structure:
+  {
+    "headline": "...",
+    "subheadline": "...",
+    "cta": "...",
+    "imageUrl": "https://images.unsplash.com/photo-..."
+  }
 `;
 
   const text = await callAI(prompt, 0.7);

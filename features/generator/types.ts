@@ -15,4 +15,5 @@ export type GeneratorInput = {
   description: string;
   audience: string;
   tone: string;
+  // Optionally, you can add imagePrompt if needed in the future
 };
