@@ -7,7 +7,6 @@ import { ArrowLeft, History, Zap } from "lucide-react";
 import SplitLayout from "@/components/layout/SplitLayout";
 import ProductForm from "@/components/form/ProductForm";
 import Preview from "@/components/preview/Preview";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 import { SecondaryButton } from "@/components/ui/SecondaryButton";
 import { getSessionId } from "@/lib/session";
 import { GeneratorInput, SalesPage } from "@/features/generator/types";
@@ -99,8 +98,7 @@ export default function Dashboard() {
           >
             History
           </SecondaryButton>
-          <ThemeToggle />
-        </div>
+                  </div>
       </div>
 
       {/* Mobile preview toggle */}

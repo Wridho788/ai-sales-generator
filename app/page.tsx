@@ -12,9 +12,8 @@ import {
   CheckCircle2,
   Code2,
 } from "lucide-react";
-import ThemeToggle from "@/components/ui/ThemeToggle";
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/Button";
 
 const features = [
   {
@@ -144,8 +143,7 @@ export default function HomePage() {
           >
             Get Started
           </Button>
-          <ThemeToggle />
-        </div>
+                  </div>
       </header>
 
       {/* HERO SECTION */}

@@ -9,7 +9,6 @@ import { supabase } from "@/lib/supabase";
 import { getSessionId } from "@/lib/session";
 import { deletePage, renamePage } from "@/features/generator/history";
 import { downloadHTML } from "@/features/generator/exportHtml";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 import { Button } from "@/components/ui/Button";
 import toast from "react-hot-toast";
 import type { SalesPage } from "@/features/generator/types";
@@ -152,8 +151,7 @@ export default function HistoryPage() {
               <ArrowLeft size={16} />
               <span className="hidden sm:inline">Dashboard</span>
             </button>
-            <ThemeToggle />
-          </div>
+                      </div>
 
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
