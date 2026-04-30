@@ -1,6 +1,27 @@
-export function GlassCard({ children }: { children: React.ReactNode }) {
+"use client";
+
+import { cn } from "@/lib/utils";
+import React from "react";
+
+interface GlassCardProps {
+  children: React.ReactNode;
+  className?: string;
+  hover?: boolean;
+  onClick?: () => void;
+}
+
+export function GlassCard({ children, className, hover = true, onClick }: GlassCardProps) {
   return (
-    <div className="backdrop-blur-md bg-white/30 dark:bg-white/10 border border-white/20 dark:border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+    <div
+      onClick={onClick}
+      className={cn(
+        "backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10",
+        "bg-white/60 dark:bg-white/5 shadow-sm",
+        hover && "hover:shadow-lg hover:border-white/30 dark:hover:border-white/20 transition-all duration-200 active:scale-[0.99]",
+        onClick && "cursor-pointer",
+        className
+      )}
+    >
       {children}
     </div>
   );

@@ -51,7 +51,7 @@ async function callAI(prompt: string, temperature = 0.7) {
     }
 
     return text;
-  } catch (err: any) {
+  } catch (err) {
     console.error("AI CALL ERROR:", err);
     throw new Error("AI request failed");
   }
